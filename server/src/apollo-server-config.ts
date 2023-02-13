@@ -12,7 +12,7 @@ const typeDefs = `#graphql
     id: String!
     price: Float!
     name: String!
-    amountInStockAvailable: Int!
+    inStock: Int!
   }
 
   type Query {

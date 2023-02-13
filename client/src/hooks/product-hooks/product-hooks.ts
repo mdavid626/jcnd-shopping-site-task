@@ -8,7 +8,7 @@ export const GetProductsQuery = gql`
       id
       price
       name
-      amountInStockAvailable
+      inStock
     }
   }
 `;

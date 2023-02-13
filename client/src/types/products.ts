@@ -4,7 +4,7 @@ export type Product = {
   id: string;
   price: number;
   name: string;
-  amountInStockAvailable: number;
+  inStock: number;
 };
 
 export type ProductsQueryResult = {

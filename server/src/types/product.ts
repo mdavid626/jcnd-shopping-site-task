@@ -5,5 +5,5 @@ export type Product = {
   category: ProductCategory;
   price: number;
   name: string;
-  amountInStockAvailable: number;
+  inStock: number;
 };
