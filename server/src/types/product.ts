@@ -1,1 +1,1 @@
-export type ProductCategory = 'vegetables' | ''
+export type ProductCategory = 'VEGETABLES' | 'FRUITS' | 'CHEESE';
