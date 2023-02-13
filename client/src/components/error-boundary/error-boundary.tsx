@@ -27,7 +27,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className="ErrorBoundary">
-          <div className="ErrorBoundary-title">GitHub Issues Browser</div>
+          <div className="ErrorBoundary-title">Simple Shopping Site</div>
           <div className="ErrorBoundary-description">Oops, that's an error</div>
         </div>
       );

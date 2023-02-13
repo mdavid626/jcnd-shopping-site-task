@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   const location = useLocation();
   return (
     <div className="Header">
-      <div className="Header-title">GitHub Issues Browser</div>
+      <div className="Header-title">Simple Shopping Site</div>
       <div className="Header-navigation">
         <Link
           to="/"
