@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page-loader should render 1`] = `
+<DocumentFragment>
+  <div>
+    content
+  </div>
+</DocumentFragment>
+`;
+
+exports[`page-loader should render error 1`] = `
+<DocumentFragment>
+  <div
+    class="PageLoader-errorMessage"
+  >
+    my error message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`page-loader should render spinner 1`] = `
+<DocumentFragment>
+  <img
+    alt="loading spinner"
+    class="PageLoader-spinner"
+    data-testid="PageLoader-spinner"
+    src="spinner.svg"
+  />
+</DocumentFragment>
+`;

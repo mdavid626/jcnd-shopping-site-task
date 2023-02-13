@@ -1,0 +1,6 @@
+.Footer {
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px solid var(--secondary-color);
+  padding: var(--space3) 0 0 0;
+}

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error-boundary should render 1`] = `
+<DocumentFragment>
+  <div>
+    content
+  </div>
+</DocumentFragment>
+`;
+
+exports[`error-boundary should show error page 1`] = `
+<DocumentFragment>
+  <div
+    class="ErrorBoundary"
+  >
+    <div
+      class="ErrorBoundary-title"
+    >
+      GitHub Issues Browser
+    </div>
+    <div
+      class="ErrorBoundary-description"
+    >
+      Oops, that's an error
+    </div>
+  </div>
+</DocumentFragment>
+`;
