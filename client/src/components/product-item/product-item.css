@@ -1,0 +1,21 @@
+.ProductItem {
+  display: flex;
+  border: 1px solid var(--secondary-color);
+  padding: var(--space3);
+  gap: var(--space2);
+  flex-direction: column;
+}
+
+.ProductItem-nameAndPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ProductItem-name {
+  font-size: 18px;
+}
+
+.ProductItem-stock {
+  font-size: 12px;
+  align-self: flex-end;
+}

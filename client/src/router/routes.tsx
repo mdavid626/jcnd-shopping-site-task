@@ -10,10 +10,10 @@ const Routes: React.FC = () => (
   <RouterRoutes>
     <Route
       path="/vegetables"
-      element={<ProductsPage category="vegetables" />}
+      element={<ProductsPage category="VEGETABLES" />}
     />
-    <Route path="/fruits" element={<ProductsPage category="fruits" />} />
-    <Route path="/cheese" element={<ProductsPage category="cheese" />} />
+    <Route path="/fruits" element={<ProductsPage category="FRUITS" />} />
+    <Route path="/cheese" element={<ProductsPage category="CHEESE" />} />
     <Route path="/error" element={<ErrorPage />} />
     <Route path="*" element={<Navigate to="/vegetables" replace />} />
   </RouterRoutes>
