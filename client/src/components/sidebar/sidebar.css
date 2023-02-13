@@ -11,6 +11,16 @@
   gap: var(--space2);
 }
 
+.Sidebar-link {
+  color: #222;
+  font-size: 18px;
+}
+
+.Sidebar-link--selected {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
 .Sidebar-content {
   flex: 1;
 }

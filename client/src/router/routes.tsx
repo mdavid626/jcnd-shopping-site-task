@@ -8,7 +8,6 @@ const ErrorPage: React.FC = () => {
 
 const Routes: React.FC = () => (
   <RouterRoutes>
-    <Route path="/" element={<ProductsPage category="vegetables" />} />
     <Route
       path="/vegetables"
       element={<ProductsPage category="vegetables" />}
@@ -16,7 +15,7 @@ const Routes: React.FC = () => (
     <Route path="/fruits" element={<ProductsPage category="fruits" />} />
     <Route path="/cheese" element={<ProductsPage category="cheese" />} />
     <Route path="/error" element={<ErrorPage />} />
-    <Route path="*" element={<Navigate to="/" replace />} />
+    <Route path="*" element={<Navigate to="/vegetables" replace />} />
   </RouterRoutes>
 );
 

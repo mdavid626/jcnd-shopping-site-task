@@ -14,7 +14,7 @@ describe('routes', () => {
   afterEach(cleanup);
   afterEach(jest.resetAllMocks);
 
-  const pages: string[] = ['/'];
+  const pages: string[] = ['/vegetables', '/fruits', '/cheese'];
   it.each(pages)('should render "%s" page', (page) => {
     const { asFragment } = renderWithRouter(<Routes />, undefined, [page]);
     expect(asFragment()).toMatchSnapshot();
