@@ -9,9 +9,12 @@
   gap: var(--space3);
 }
 
+.ProductsPage-sidebar {
+  flex: 1;
+}
+
 .ProductsPage-content {
   display: flex;
   flex-direction: column;
   gap: var(--space3);
-  flex: 1;
 }

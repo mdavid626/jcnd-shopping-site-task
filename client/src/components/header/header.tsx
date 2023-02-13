@@ -1,33 +1,21 @@
-import classnames from 'classnames';
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Avatar from '../../assets/avatar.svg';
+import Cart from '../../assets/cart.svg';
+import Logo from '../../assets/logo.png';
 import './header.css';
 
 const Header: React.FC = () => {
-  const location = useLocation();
   return (
     <div className="Header">
-      <div className="Header-title">Simple Shopping Site</div>
-      <div className="Header-navigation">
-        <Link
-          to="/"
-          className={classnames('Header-link', {
-            'Header-selectedLink':
-              location.pathname === '/' ||
-              location.pathname.startsWith('/issue'),
-          })}
-        >
-          React GitHub Issues
-        </Link>
-        <Link
-          to="/about"
-          className={classnames('Header-link', {
-            'Header-selectedLink': location.pathname === '/about',
-          })}
-        >
-          About
-        </Link>
+      <div className="Header-logoAndTitle">
+        <img src={Logo} className="Header-logo" alt="logo" />
+        <div className="Header-title">Simple Shopping Site</div>
       </div>
+      <div className="Header-avatarAndUser">
+        <img src={Avatar} className="Header-avatar" />
+        <div className="Header-user">Max Pecu</div>
+      </div>
+      <img src={Cart} className="Header-cart" />
     </div>
   );
 };

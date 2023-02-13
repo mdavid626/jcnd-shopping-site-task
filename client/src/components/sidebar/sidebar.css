@@ -1,0 +1,16 @@
+.Sidebar {
+  display: flex;
+  gap: var(--space3);
+}
+
+.Sidebar-links {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  border-right: 1px solid var(--secondary-color);
+  gap: var(--space2);
+}
+
+.Sidebar-content {
+  flex: 1;
+}
