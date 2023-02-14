@@ -6,14 +6,14 @@ const vegetables: Product[] = [
     name: 'Artichoke',
     category: 'VEGETABLES',
     price: 46.36,
-    inStock: 520,
+    inStock: 5,
   },
   {
     id: '63ea6485732ff5cf8b36442d',
     name: 'Asparagus',
     category: 'VEGETABLES',
     price: 25.36,
-    inStock: 924,
+    inStock: 3,
   },
   {
     id: '63ea6485732ff5cf8b36442e',

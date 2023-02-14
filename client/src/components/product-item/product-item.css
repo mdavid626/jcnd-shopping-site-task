@@ -23,4 +23,5 @@
 .ProductItem-buy {
   cursor: pointer;
   align-self: flex-end;
+  user-select: none;
 }

@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo, useState } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 import ShoppingCartContext from '../../contexts/shopping-cart-context/shopping-cart-context';
 import { Product } from '../../types/products';
 import { ShoppingCartItem } from '../../types/shopping-cart';
@@ -61,4 +61,14 @@ export const useRemoveFromShoppingCart = () => {
     },
     [shoppingCart, setShoppingCart]
   );
+};
+
+export const useAvailableInStock = (product: Product) => {
+  const [shoppingCart] = useShoppingCart();
+  return useMemo(() => {
+    const shoppingCartItem = shoppingCart.find(
+      (item) => item.product.id === product.id
+    );
+    return product.inStock - (shoppingCartItem?.amount || 0);
+  }, [shoppingCart, product.id, product.inStock]);
 };

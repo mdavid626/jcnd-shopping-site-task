@@ -12,6 +12,8 @@ const ShoppingCartListItem: React.FC<{
 }> = ({ shoppingCartItem }) => {
   const addToShoppingCart = useAddToShoppingCart();
   const removeFromShoppingCart = useRemoveFromShoppingCart();
+  const availableInStock =
+    shoppingCartItem.product.inStock - shoppingCartItem.amount;
   return (
     <div className="ShoppingCartListItem">
       <div className="ShoppingCartListItem-product">
@@ -28,12 +30,14 @@ const ShoppingCartListItem: React.FC<{
         </div>
       </div>
       <div className="ShoppingCartListItem-actions">
-        <div
-          onClick={() => addToShoppingCart(shoppingCartItem.product)}
-          className="ShoppingCartListItem-button"
-        >
-          Add more
-        </div>
+        {availableInStock > 0 && (
+          <div
+            onClick={() => addToShoppingCart(shoppingCartItem.product)}
+            className="ShoppingCartListItem-button"
+          >
+            Add more
+          </div>
+        )}
         <div
           onClick={() => removeFromShoppingCart(shoppingCartItem.product)}
           className="ShoppingCartListItem-button"
