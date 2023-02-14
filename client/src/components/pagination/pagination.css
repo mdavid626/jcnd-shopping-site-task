@@ -1,0 +1,18 @@
+.Pagination {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.Pagination-arrow {
+  user-select: none;
+  pointer-events: none;
+  font-size: 20px;
+  color: var(--secondary-color);
+}
+
+.Pagination-arrow--enabled {
+  color: #222;
+  cursor: pointer;
+  pointer-events: all;
+}

@@ -1,3 +1,5 @@
+import { PageInfo } from './page-info';
+
 export type ProductCategory = 'VEGETABLES' | 'FRUITS' | 'CHEESE';
 
 export type Product = {
@@ -8,5 +10,5 @@ export type Product = {
 };
 
 export type ProductsQueryResult = {
-  products: Product[];
+  products: { nodes: Product[]; pageInfo: PageInfo };
 };

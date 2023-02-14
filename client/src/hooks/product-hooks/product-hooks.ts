@@ -1,40 +1,36 @@
 import { ApolloError, gql, useQuery } from '@apollo/client';
-import { useCallback } from 'react';
 import { ProductCategory, ProductsQueryResult } from '../../types/products';
 
 export const GetProductsQuery = gql`
-  query GetProductsQuery($category: ProductCategory!) {
-    products(category: $category) {
-      id
-      price
-      name
-      inStock
+  query GetProductsQuery($category: ProductCategory!, $page: Int!) {
+    products(category: $category, page: $page) {
+      nodes {
+        id
+        price
+        name
+        inStock
+      }
+      pageInfo {
+        page
+        numberOfPages
+      }
     }
   }
 `;
 
 export const useProducts = (
-  category: ProductCategory
-): [
-  ProductsQueryResult | undefined,
-  boolean,
-  ApolloError | undefined,
-  () => void
-] => {
-  const {
-    data,
-    loading,
-    error,
-    fetchMore: queryFetchMore,
-  } = useQuery<ProductsQueryResult>(GetProductsQuery, {
-    variables: {
-      category,
-    },
-    notifyOnNetworkStatusChange: true,
-  });
-  const fetchMore = useCallback(
-    () => queryFetchMore({}),
-    [queryFetchMore, data]
+  category: ProductCategory,
+  currentPage: number
+): [ProductsQueryResult | undefined, boolean, ApolloError | undefined] => {
+  const { data, loading, error } = useQuery<ProductsQueryResult>(
+    GetProductsQuery,
+    {
+      variables: {
+        category,
+        page: currentPage,
+      },
+      notifyOnNetworkStatusChange: true,
+    }
   );
-  return [data, loading, error, fetchMore];
+  return [data, loading, error];
 };

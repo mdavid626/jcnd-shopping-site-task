@@ -7,6 +7,11 @@ const typeDefs = `#graphql
     FRUITS
     CHEESE
   }
+  
+  type PageInfo {
+    page: Int!
+    numberOfPages: Int!
+  }
 
   type Product {
     id: String!
@@ -14,16 +19,26 @@ const typeDefs = `#graphql
     name: String!
     inStock: Int!
   }
+  
+  type ProductsQueryResult {
+    nodes: [Product]
+    pageInfo: PageInfo
+  }
 
   type Query {
-    products(category: ProductCategory!): [Product]
+    products(category: ProductCategory!, page: Int!): ProductsQueryResult
   }
 `;
 
 const resolvers = {
   Query: {
-    products: (_: unknown, variables: { category: ProductCategory }) =>
-      productsDomain.getProducts(variables.category),
+    products: async (
+      _: unknown,
+      variables: { category: ProductCategory; page: number }
+    ) => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      return productsDomain.getProducts(variables.category, variables.page);
+    },
   },
 };
 
