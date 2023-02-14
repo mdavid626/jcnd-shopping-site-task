@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes as RouterRoutes } from 'react-router-dom';
 import ProductsPage from '../pages/products-page/products-page';
+import ThankYouPage from '../pages/thank-you-page/thank-you-page';
 
 const ErrorPage: React.FC = () => {
   throw new Error('test error');
@@ -14,6 +15,7 @@ const Routes: React.FC = () => (
     />
     <Route path="/fruits" element={<ProductsPage category="FRUITS" />} />
     <Route path="/cheese" element={<ProductsPage category="CHEESE" />} />
+    <Route path="/thank-you" element={<ThankYouPage />} />
     <Route path="/error" element={<ErrorPage />} />
     <Route path="*" element={<Navigate to="/vegetables" replace />} />
   </RouterRoutes>

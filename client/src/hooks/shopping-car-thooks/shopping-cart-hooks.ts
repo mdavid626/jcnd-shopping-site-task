@@ -1,7 +1,10 @@
+import { ApolloError, gql, useMutation } from '@apollo/client';
 import { useCallback, useContext, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ShoppingCartContext from '../../contexts/shopping-cart-context/shopping-cart-context';
 import { Product } from '../../types/products';
 import { ShoppingCartItem } from '../../types/shopping-cart';
+import { GetProductsQuery } from '../product-hooks/product-hooks';
 
 export const useShoppingCart = (): [
   ShoppingCartItem[],
@@ -71,4 +74,42 @@ export const useAvailableInStock = (product: Product) => {
     );
     return product.inStock - (shoppingCartItem?.amount || 0);
   }, [shoppingCart, product.id, product.inStock]);
+};
+
+const PlaceOrderMutation = gql`
+  mutation PlaceOrder($order: Order) {
+    placeOrder(order: $order)
+  }
+`;
+
+export const usePlaceOrder = (): [
+  () => void,
+  boolean,
+  ApolloError | undefined
+] => {
+  const [shoppingCart, setShoppingCart] = useShoppingCart();
+  const [mutate, { loading, error }] = useMutation(PlaceOrderMutation);
+  const navigate = useNavigate();
+  const placeOrder = useCallback(
+    () =>
+      mutate({
+        variables: {
+          order: {
+            items: shoppingCart.map((item) => ({
+              productId: item.product.id,
+              amount: item.amount,
+            })),
+          },
+        },
+        onCompleted: () => {
+          setShoppingCart([]);
+          navigate('/thank-you');
+        },
+        onError: (error) => {
+          alert(error.message);
+        },
+      }),
+    [mutate, shoppingCart, setShoppingCart]
+  );
+  return [placeOrder, loading, error];
 };

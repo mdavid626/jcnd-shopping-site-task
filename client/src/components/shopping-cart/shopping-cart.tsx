@@ -1,5 +1,8 @@
 import React from 'react';
-import { useShoppingCart } from '../../hooks/shopping-car-thooks/shopping-cart-hooks';
+import {
+  usePlaceOrder,
+  useShoppingCart,
+} from '../../hooks/shopping-car-thooks/shopping-cart-hooks';
 import { ShoppingCartItem } from '../../types/shopping-cart';
 import ShoppingCartListItem from '../shopping-cart-list-item/shopping-cart-list-item';
 import './shopping-cart.css';
@@ -9,6 +12,7 @@ const calculateTotal = (shoppingCart: ShoppingCartItem[]) =>
 
 const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [shoppingCart] = useShoppingCart();
+  const [placeOrder, isPlacingOrder] = usePlaceOrder();
   return (
     <div className="ShoppingCart">
       <div className="ShoppingCart-header">Shopping Cart</div>
@@ -35,7 +39,20 @@ const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         <div onClick={() => onClose()} className="ShoppingCart-close">
           close
         </div>
-        {shoppingCart.length > 0 && <div>Place order</div>}
+        {shoppingCart.length > 0 && !isPlacingOrder && (
+          <div
+            onClick={async () => {
+              await placeOrder();
+              onClose();
+            }}
+            className="ShoppingCart-placeOrder"
+          >
+            Place order
+          </div>
+        )}
+        {isPlacingOrder && (
+          <div className="ShoppingCart-placeOrder">Placing order...</div>
+        )}
       </div>
     </div>
   );
