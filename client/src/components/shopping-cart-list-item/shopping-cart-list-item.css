@@ -1,0 +1,25 @@
+.ShoppingCartListItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.ShoppingCartListItem-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.ShoppingCartListItem-product {
+  display: flex;
+  gap: var(--space3);
+}
+
+.ShoppingCartListItem-actions {
+  display: flex;
+  gap: var(--space3);
+}
+
+.ShoppingCartListItem-button {
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+}

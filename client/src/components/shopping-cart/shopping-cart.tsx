@@ -1,6 +1,11 @@
 import React from 'react';
 import { useShoppingCart } from '../../hooks/shopping-car-thooks/shopping-cart-hooks';
+import { ShoppingCartItem } from '../../types/shopping-cart';
+import ShoppingCartListItem from '../shopping-cart-list-item/shopping-cart-list-item';
 import './shopping-cart.css';
+
+const calculateTotal = (shoppingCart: ShoppingCartItem[]) =>
+  shoppingCart.reduce((acc, item) => acc + item.product.price * item.amount, 0);
 
 const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [shoppingCart] = useShoppingCart();
@@ -11,15 +16,26 @@ const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         {shoppingCart.length > 0 ? (
           <div className="ShoppingCart-items">
             {shoppingCart.map((item) => (
-              <div key={item.productId}>{item.productId}</div>
+              <ShoppingCartListItem
+                key={item.product.id}
+                shoppingCartItem={item}
+              />
             ))}
           </div>
         ) : (
           <div>Your shopping cart is empty</div>
         )}
       </div>
-      <div onClick={() => onClose()} className="ShoppingCart-close">
-        close
+      {shoppingCart.length > 0 && (
+        <div className="ShoppingCart-total">
+          Total: {calculateTotal(shoppingCart).toFixed(2)} EUR
+        </div>
+      )}
+      <div className="ShoppingCart-actions">
+        <div onClick={() => onClose()} className="ShoppingCart-close">
+          close
+        </div>
+        {shoppingCart.length > 0 && <div>Place order</div>}
       </div>
     </div>
   );

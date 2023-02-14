@@ -1,4 +1,6 @@
+import { Product } from './products';
+
 export type ShoppingCartItem = {
-  productId: string;
+  product: Product;
   amount: number;
 };

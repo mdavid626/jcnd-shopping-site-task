@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar from '../../assets/avatar.svg';
 import Logo from '../../assets/logo.png';
-import ShoppingCartButton from '../shopping-bar-button/shopping-cart-button';
+import ShoppingCartButton from '../shopping-cart-button/shopping-cart-button';
 import './header.css';
 
 const Header: React.FC = () => (

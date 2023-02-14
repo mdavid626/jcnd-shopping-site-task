@@ -16,18 +16,18 @@ export const useAddToShoppingCart = () => {
   return useCallback(
     (productToAdd: Product) => {
       const existingProduct = shoppingCart.find(
-        ({ productId }) => productId === productToAdd.id
+        ({ product }) => product.id === productToAdd.id
       );
       if (existingProduct) {
         const newShoppingCart = shoppingCart.map((item) =>
-          item.productId === productToAdd.id
+          item.product.id === productToAdd.id
             ? { ...item, amount: item.amount + 1 }
             : item
         );
         setShoppingCart(newShoppingCart);
       } else {
         const newShoppingCartItem: ShoppingCartItem = {
-          productId: productToAdd.id,
+          product: productToAdd,
           amount: 1,
         };
         const newShoppingCart = [...shoppingCart, newShoppingCartItem];
@@ -43,18 +43,18 @@ export const useRemoveFromShoppingCart = () => {
   return useCallback(
     (productToRemove: Product) => {
       const existingProduct = shoppingCart.find(
-        ({ productId }) => productId === productToRemove.id
+        ({ product }) => product.id === productToRemove.id
       );
       if (existingProduct && existingProduct.amount > 1) {
         const newShoppingCart = shoppingCart.map((item) =>
-          item.productId === productToRemove.id
+          item.product.id === productToRemove.id
             ? { ...item, amount: item.amount - 1 }
             : item
         );
         setShoppingCart(newShoppingCart);
       } else {
         const newShoppingCart = shoppingCart.filter(
-          (item) => item.productId === productToRemove.id
+          (item) => item.product.id !== productToRemove.id
         );
         setShoppingCart(newShoppingCart);
       }
