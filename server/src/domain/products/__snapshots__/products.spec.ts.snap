@@ -1,0 +1,394 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`productsDomain getProducts should return paginated products for CHEESE category and 0 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a86",
+      "inStock": 52,
+      "name": "Affineur",
+      "priceInCents": 249,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a87",
+      "inStock": 574,
+      "name": "Bergkäse",
+      "priceInCents": 4676,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a88",
+      "inStock": 824,
+      "name": "Brimsen",
+      "priceInCents": 4841,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a89",
+      "inStock": 462,
+      "name": "Dachsteiner",
+      "priceInCents": 1752,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a8a",
+      "inStock": 289,
+      "name": "Lüneberg cheese",
+      "priceInCents": 3547,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 7,
+    "page": 0,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for CHEESE category and 1 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a8b",
+      "inStock": 484,
+      "name": "Tyrolean grey cheese",
+      "priceInCents": 3001,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a8c",
+      "inStock": 832,
+      "name": "Beauvoorde cheese",
+      "priceInCents": 7708,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a8d",
+      "inStock": 896,
+      "name": "Herve cheese",
+      "priceInCents": 2982,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a8e",
+      "inStock": 8,
+      "name": "Limburger cheese",
+      "priceInCents": 784,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39a8f",
+      "inStock": 980,
+      "name": "Maredsous cheese",
+      "priceInCents": 828,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 7,
+    "page": 1,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for CHEESE category and 6 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39aa4",
+      "inStock": 904,
+      "name": "Romadur",
+      "priceInCents": 258,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39aa5",
+      "inStock": 485,
+      "name": "Tilsit cheese",
+      "priceInCents": 1368,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39aa6",
+      "inStock": 172,
+      "name": "Spundekäs cheese",
+      "priceInCents": 4822,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39aa7",
+      "inStock": 111,
+      "name": "Steinbuscher",
+      "priceInCents": 1562,
+    },
+    {
+      "category": "CHEESE",
+      "id": "63ea6652e0bff71580e39aa8",
+      "inStock": 41,
+      "name": "Weisslacker",
+      "priceInCents": 7836,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 7,
+    "page": 6,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for FRUITS category and 0 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a68",
+      "inStock": 505,
+      "name": "Apple",
+      "priceInCents": 4649,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a69",
+      "inStock": 867,
+      "name": "Banana",
+      "priceInCents": 4125,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a6a",
+      "inStock": 610,
+      "name": "Orange",
+      "priceInCents": 349,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a6b",
+      "inStock": 814,
+      "name": "Lemon",
+      "priceInCents": 1745,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a6c",
+      "inStock": 359,
+      "name": "Lime",
+      "priceInCents": 4892,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 6,
+    "page": 0,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for FRUITS category and 1 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a6d",
+      "inStock": 496,
+      "name": "Melon",
+      "priceInCents": 4684,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a6e",
+      "inStock": 200,
+      "name": "Watermelon",
+      "priceInCents": 9053,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a6f",
+      "inStock": 42,
+      "name": "Grape",
+      "priceInCents": 5923,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a70",
+      "inStock": 836,
+      "name": "Grapefruit",
+      "priceInCents": 8918,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a71",
+      "inStock": 992,
+      "name": "Plum",
+      "priceInCents": 2573,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 6,
+    "page": 1,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for FRUITS category and 5 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a81",
+      "inStock": 734,
+      "name": "Passion fruit",
+      "priceInCents": 3324,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a82",
+      "inStock": 833,
+      "name": "Persimmon",
+      "priceInCents": 8697,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a83",
+      "inStock": 418,
+      "name": "Dragon fruit",
+      "priceInCents": 8596,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a84",
+      "inStock": 715,
+      "name": "Papaya",
+      "priceInCents": 8729,
+    },
+    {
+      "category": "FRUITS",
+      "id": "63ea65b5e0bff71580e39a85",
+      "inStock": 620,
+      "name": "Pomegranate",
+      "priceInCents": 4453,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 6,
+    "page": 5,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for VEGETABLES category and 0 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b36442c",
+      "inStock": 5,
+      "name": "Artichoke",
+      "priceInCents": 123,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b36442d",
+      "inStock": 3,
+      "name": "Asparagus",
+      "priceInCents": 456,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b36442e",
+      "inStock": 25,
+      "name": "Eggplant",
+      "priceInCents": 4631,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b36442f",
+      "inStock": 977,
+      "name": "Avocado",
+      "priceInCents": 3838,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364430",
+      "inStock": 985,
+      "name": "Beet",
+      "priceInCents": 4361,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 15,
+    "page": 0,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for VEGETABLES category and 1 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364431",
+      "inStock": 466,
+      "name": "Broccoli",
+      "priceInCents": 9699,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364432",
+      "inStock": 223,
+      "name": "Broccolini",
+      "priceInCents": 3434,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364433",
+      "inStock": 12,
+      "name": "Brussels Sprouts",
+      "priceInCents": 3692,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364434",
+      "inStock": 200,
+      "name": "Cabbage",
+      "priceInCents": 8839,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364435",
+      "inStock": 151,
+      "name": "Carrots",
+      "priceInCents": 6828,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 15,
+    "page": 1,
+  },
+}
+`;
+
+exports[`productsDomain getProducts should return paginated products for VEGETABLES category and 14 page 1`] = `
+{
+  "nodes": [
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364472",
+      "inStock": 988,
+      "name": "Swede",
+      "priceInCents": 8013,
+    },
+    {
+      "category": "VEGETABLES",
+      "id": "63ea6485732ff5cf8b364473",
+      "inStock": 7,
+      "name": "Turnips",
+      "priceInCents": 113,
+    },
+  ],
+  "pageInfo": {
+    "numberOfPages": 15,
+    "page": 14,
+  },
+}
+`;
