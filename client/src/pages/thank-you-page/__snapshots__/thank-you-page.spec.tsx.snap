@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`thank-you-page should render 1`] = `
+<DocumentFragment>
+  <div
+    class="ThankYouPage"
+  >
+    <div>
+      header
+    </div>
+    <div
+      class="ThankYouPage-content"
+    >
+      <div
+        class="ThankYouPage-header"
+      >
+        Order placed, thank you!
+      </div>
+      <a
+        href="/"
+      >
+        make new order
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
