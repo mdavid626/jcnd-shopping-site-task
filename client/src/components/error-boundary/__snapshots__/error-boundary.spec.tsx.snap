@@ -16,7 +16,7 @@ exports[`error-boundary should show error page 1`] = `
     <div
       class="ErrorBoundary-title"
     >
-      GitHub Issues Browser
+      Simple Shopping Site
     </div>
     <div
       class="ErrorBoundary-description"

@@ -15,7 +15,7 @@ const Sidebar: React.FC<{ children: ReactNode; className?: string }> = ({
 }) => {
   const location = useLocation();
   return (
-    <div className={classnames('Sidebar', className)}>
+    <div className={classnames('Sidebar', className)} data-testid="Sidebar">
       <div className="Sidebar-links">
         {links.map((link) => (
           <Link

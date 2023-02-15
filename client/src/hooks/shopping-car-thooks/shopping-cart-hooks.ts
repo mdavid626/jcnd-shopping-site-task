@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import ShoppingCartContext from '../../contexts/shopping-cart-context/shopping-cart-context';
 import { Product } from '../../types/products';
 import { ShoppingCartItem } from '../../types/shopping-cart';
-import { GetProductsQuery } from '../product-hooks/product-hooks';
 
 export const useShoppingCart = (): [
   ShoppingCartItem[],
@@ -109,7 +108,7 @@ export const usePlaceOrder = (): [
           alert(error.message);
         },
       }),
-    [mutate, shoppingCart, setShoppingCart]
+    [mutate, shoppingCart, setShoppingCart, navigate]
   );
   return [placeOrder, loading, error];
 };

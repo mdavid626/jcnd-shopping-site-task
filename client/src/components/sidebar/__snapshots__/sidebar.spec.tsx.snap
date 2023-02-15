@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sidebar should render 1`] = `
+<DocumentFragment>
+  <div
+    class="Sidebar"
+    data-testid="Sidebar"
+  >
+    <div
+      class="Sidebar-links"
+    >
+      <a
+        class="Sidebar-link Sidebar-link--selected"
+        href="/vegetables"
+      >
+        Vegetables
+      </a>
+      <a
+        class="Sidebar-link"
+        href="/fruits"
+      >
+        Fruits
+      </a>
+      <a
+        class="Sidebar-link"
+        href="/cheese"
+      >
+        Cheese
+      </a>
+    </div>
+    <div
+      class="Sidebar-content"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
