@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Integration] app should return products 1`] = `
+{
+  "data": {
+    "products": {
+      "__typename": "ProductsQueryResult",
+      "nodes": [
+        {
+          "__typename": "Product",
+          "id": "63ea6485732ff5cf8b36442c",
+          "inStock": 5,
+          "name": "Artichoke",
+          "priceInCents": 123,
+        },
+        {
+          "__typename": "Product",
+          "id": "63ea6485732ff5cf8b36442d",
+          "inStock": 3,
+          "name": "Asparagus",
+          "priceInCents": 456,
+        },
+        {
+          "__typename": "Product",
+          "id": "63ea6485732ff5cf8b36442e",
+          "inStock": 25,
+          "name": "Eggplant",
+          "priceInCents": 4631,
+        },
+        {
+          "__typename": "Product",
+          "id": "63ea6485732ff5cf8b36442f",
+          "inStock": 977,
+          "name": "Avocado",
+          "priceInCents": 3838,
+        },
+        {
+          "__typename": "Product",
+          "id": "63ea6485732ff5cf8b364430",
+          "inStock": 985,
+          "name": "Beet",
+          "priceInCents": 4361,
+        },
+      ],
+      "pageInfo": {
+        "__typename": "PageInfo",
+        "numberOfPages": 15,
+        "page": 0,
+      },
+    },
+  },
+}
+`;
