@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React from 'react';
 import {
   useAddToShoppingCart,
@@ -19,29 +20,36 @@ const ShoppingCartListItem: React.FC<{
         <div className="ShoppingCartListItem-name">
           {shoppingCartItem.product.name}
         </div>
-        <div>Price: {shoppingCartItem.product.price.toFixed(2)} EUR</div>
-        <div>Amount: {shoppingCartItem.amount}</div>
-        <div>
+        <div className="ShoppingCartListItem-price">
+          Price: {shoppingCartItem.product.price.toFixed(2)} EUR
+        </div>
+        <div className="ShoppingCartListItem-amountColumn">
+          <div className="ShoppingCartListItem-amount">
+            Amount: {shoppingCartItem.amount}
+          </div>
+          <div className="ShoppingCartListItem-actions">
+            <div
+              onClick={() => addToShoppingCart(shoppingCartItem.product)}
+              className={classnames('ShoppingCartListItem-button', {
+                'ShoppingCartListItem-button--disabled': availableInStock <= 0,
+              })}
+            >
+              add
+            </div>
+            {'/'}
+            <div
+              onClick={() => removeFromShoppingCart(shoppingCartItem.product)}
+              className="ShoppingCartListItem-button"
+            >
+              remove
+            </div>
+          </div>
+        </div>
+        <div className="ShoppingCartListItem-totalPrice">
           {(shoppingCartItem.product.price * shoppingCartItem.amount).toFixed(
             2
           )}{' '}
           EUR
-        </div>
-      </div>
-      <div className="ShoppingCartListItem-actions">
-        {availableInStock > 0 && (
-          <div
-            onClick={() => addToShoppingCart(shoppingCartItem.product)}
-            className="ShoppingCartListItem-button"
-          >
-            add more
-          </div>
-        )}
-        <div
-          onClick={() => removeFromShoppingCart(shoppingCartItem.product)}
-          className="ShoppingCartListItem-button"
-        >
-          remove
         </div>
       </div>
     </div>

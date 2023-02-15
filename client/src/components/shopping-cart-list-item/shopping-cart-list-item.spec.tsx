@@ -27,20 +27,22 @@ describe('shopping-cart-list-item', () => {
     expect(useRemoveFromShoppingCart).toHaveBeenCalledWith();
   });
 
-  it('should not render add more button when no more in stock', () => {
+  it('should disable add more button when no more in stock', () => {
     const shoppingCartItem: ShoppingCartItem = {
       ...testShoppingCartItem1,
       amount: testShoppingCartItem1.product.inStock,
     };
     render(<ShoppingCartListItem shoppingCartItem={shoppingCartItem} />);
-    expect(screen.queryByText('add more')).toBe(null);
+    expect(screen.getByText('add')).toHaveClass(
+      'ShoppingCartListItem-button--disabled'
+    );
   });
 
   it('should add more amount when add more button clicked', async () => {
     const addToShoppingCart = jest.fn();
     (useAddToShoppingCart as jest.Mock).mockReturnValue(addToShoppingCart);
     render(<ShoppingCartListItem shoppingCartItem={testShoppingCartItem1} />);
-    await userEvent.click(screen.getByText('add more'));
+    await userEvent.click(screen.getByText('add'));
     expect(addToShoppingCart).toHaveBeenCalledWith(
       testShoppingCartItem1.product
     );

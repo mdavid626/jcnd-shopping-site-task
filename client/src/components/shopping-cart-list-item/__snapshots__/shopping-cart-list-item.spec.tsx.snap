@@ -13,28 +13,39 @@ exports[`shopping-cart-list-item should render 1`] = `
       >
         Artichoke
       </div>
-      <div>
+      <div
+        class="ShoppingCartListItem-price"
+      >
         Price: 46.36 EUR
       </div>
-      <div>
-        Amount: 3
+      <div
+        class="ShoppingCartListItem-amountColumn"
+      >
+        <div
+          class="ShoppingCartListItem-amount"
+        >
+          Amount: 3
+        </div>
+        <div
+          class="ShoppingCartListItem-actions"
+        >
+          <div
+            class="ShoppingCartListItem-button"
+          >
+            add
+          </div>
+          /
+          <div
+            class="ShoppingCartListItem-button"
+          >
+            remove
+          </div>
+        </div>
       </div>
-      <div>
+      <div
+        class="ShoppingCartListItem-totalPrice"
+      >
         139.08 EUR
-      </div>
-    </div>
-    <div
-      class="ShoppingCartListItem-actions"
-    >
-      <div
-        class="ShoppingCartListItem-button"
-      >
-        add more
-      </div>
-      <div
-        class="ShoppingCartListItem-button"
-      >
-        remove
       </div>
     </div>
   </div>
