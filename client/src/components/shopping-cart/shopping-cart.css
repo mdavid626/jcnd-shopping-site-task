@@ -21,6 +21,7 @@
 
 .ShoppingCart-close {
   cursor: pointer;
+  color: var(--primary-color);
 }
 
 .ShoppingCart-items {

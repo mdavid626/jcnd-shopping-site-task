@@ -81,13 +81,9 @@ const PlaceOrderMutation = gql`
   }
 `;
 
-export const usePlaceOrder = (): [
-  () => void,
-  boolean,
-  ApolloError | undefined
-] => {
+export const usePlaceOrder = (): [() => void, boolean] => {
   const [shoppingCart, setShoppingCart] = useShoppingCart();
-  const [mutate, { loading, error }] = useMutation(PlaceOrderMutation);
+  const [mutate, { loading }] = useMutation(PlaceOrderMutation);
   const navigate = useNavigate();
   const placeOrder = useCallback(
     () =>
@@ -110,5 +106,5 @@ export const usePlaceOrder = (): [
       }),
     [mutate, shoppingCart, setShoppingCart, navigate]
   );
-  return [placeOrder, loading, error];
+  return [placeOrder, loading];
 };

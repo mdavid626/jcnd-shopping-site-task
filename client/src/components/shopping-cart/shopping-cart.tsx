@@ -13,6 +13,10 @@ const calculateTotal = (shoppingCart: ShoppingCartItem[]) =>
 const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [shoppingCart] = useShoppingCart();
   const [placeOrder, isPlacingOrder] = usePlaceOrder();
+  const handlePlaceOrderClick = async () => {
+    await placeOrder();
+    onClose();
+  };
   return (
     <div className="ShoppingCart">
       <div className="ShoppingCart-header">Shopping Cart</div>
@@ -31,7 +35,7 @@ const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         )}
       </div>
       {shoppingCart.length > 0 && (
-        <div className="ShoppingCart-total">
+        <div className="ShoppingCart-total" data-testid="ShoppingCart-total">
           Total: {calculateTotal(shoppingCart).toFixed(2)} EUR
         </div>
       )}
@@ -41,10 +45,7 @@ const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         </div>
         {shoppingCart.length > 0 && !isPlacingOrder && (
           <div
-            onClick={async () => {
-              await placeOrder();
-              onClose();
-            }}
+            onClick={handlePlaceOrderClick}
             className="ShoppingCart-placeOrder"
           >
             Place order
