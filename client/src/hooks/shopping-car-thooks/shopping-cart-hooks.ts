@@ -76,7 +76,7 @@ export const useAvailableInStock = (product: Product) => {
 };
 
 const PlaceOrderMutation = gql`
-  mutation PlaceOrder($items: [OrderItem!]) {
+  mutation PlaceOrder($items: [OrderItem!]!) {
     placeOrder(items: $items)
   }
 `;

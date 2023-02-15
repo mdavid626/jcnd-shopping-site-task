@@ -18,6 +18,9 @@ const resolvers = {
       _: unknown,
       { items }: { items: OrderRequestItem[] }
     ) => {
+      if (items.length === 0) {
+        throw new Error('Missing items');
+      }
       await new Promise((resolve) => setTimeout(resolve, 1000));
       const newOrder = await ordersDomain.placeOrder(items);
       return newOrder._id;

@@ -18,7 +18,7 @@ const typeDefs = `#graphql
   }
   
   type ProductsQueryResult {
-    nodes: [Product!]
+    nodes: [Product!]!
     pageInfo: PageInfo!
   }
 
@@ -32,7 +32,7 @@ const typeDefs = `#graphql
   }
   
   type Mutation {
-    placeOrder(items: [OrderItem!]): String!
+    placeOrder(items: [OrderItem!]!): String!
   }
 `;
 
