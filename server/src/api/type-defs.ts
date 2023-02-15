@@ -18,12 +18,12 @@ const typeDefs = `#graphql
   }
   
   type ProductsQueryResult {
-    nodes: [Product]
-    pageInfo: PageInfo
+    nodes: [Product!]
+    pageInfo: PageInfo!
   }
 
   type Query {
-    products(category: ProductCategory!, page: Int!): ProductsQueryResult
+    products(category: ProductCategory!, page: Int!): ProductsQueryResult!
   }
   
   input OrderItem {
@@ -31,12 +31,8 @@ const typeDefs = `#graphql
     amount: Int!
   }
   
-  input Order {
-    items: [OrderItem]
-  }
-  
   type Mutation {
-    placeOrder(order: Order): String!
+    placeOrder(items: [OrderItem!]): String!
   }
 `;
 

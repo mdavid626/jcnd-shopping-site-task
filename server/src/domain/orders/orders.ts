@@ -1,8 +1,14 @@
 import OrderModel from '../../models/order';
-import { Order } from '../../types/order';
+import { OrderRequestItem } from '../../types/order';
+import { Types } from 'mongoose';
 
-const placeOrder = async (order: Order) => {
-  const newOrder = await new OrderModel(order).save();
+const placeOrder = async (orderRequestItems: OrderRequestItem[]) => {
+  const newOrder = await new OrderModel({
+    items: orderRequestItems.map((item) => ({
+      productId: new Types.ObjectId(item.productId),
+      amount: item.amount,
+    })),
+  }).save();
   return newOrder.toObject();
 };
 

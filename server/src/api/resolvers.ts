@@ -1,29 +1,25 @@
-import { Types } from 'mongoose';
 import productsDomain from '../domain/products/products';
 import ordersDomain from '../domain/orders/orders';
 import { ProductCategory } from '../types/product';
-import { Order } from '../types/order';
+import { OrderRequestItem } from '../types/order';
 
 const resolvers = {
   Query: {
     products: async (
       _: unknown,
-      variables: { category: ProductCategory; page: number }
+      { category, page }: { category: ProductCategory; page: number }
     ) => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      return productsDomain.getProducts(variables.category, variables.page);
+      return productsDomain.getProducts(category, page);
     },
   },
   Mutation: {
-    placeOrder: async (_: unknown, { order }: { order: Order }) => {
+    placeOrder: async (
+      _: unknown,
+      { items }: { items: OrderRequestItem[] }
+    ) => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const newOrder = await ordersDomain.placeOrder({
-        ...order,
-        items: order.items.map((item) => ({
-          ...item,
-          productId: new Types.ObjectId(item.productId),
-        })),
-      });
+      const newOrder = await ordersDomain.placeOrder(items);
       return newOrder._id;
     },
   },

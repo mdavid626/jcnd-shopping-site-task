@@ -8,7 +8,9 @@ const ThankYouPage: React.FC = () => (
     <Header />
     <div className="ThankYouPage-content">
       <div className="ThankYouPage-header">Order placed, thank you!</div>
-      <Link to="/">make new order</Link>
+      <Link to="/" className="ThankYouPage-newOrder">
+        make new order
+      </Link>
     </div>
   </div>
 );

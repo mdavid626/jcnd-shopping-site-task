@@ -11,7 +11,7 @@ const getProducts = (
   const allProductsForCategory = sampleProducts.filter(
     (product) => product.category === category
   );
-  const products = allProductsForCategory
+  const nodes = allProductsForCategory
     .slice(page * pageSize)
     .slice(0, pageSize);
   const pageInfo: PageInfo = {
@@ -19,7 +19,7 @@ const getProducts = (
     numberOfPages: Math.ceil(allProductsForCategory.length / pageSize),
   };
   return {
-    nodes: products,
+    nodes,
     pageInfo,
   };
 };

@@ -76,8 +76,8 @@ export const useAvailableInStock = (product: Product) => {
 };
 
 const PlaceOrderMutation = gql`
-  mutation PlaceOrder($order: Order) {
-    placeOrder(order: $order)
+  mutation PlaceOrder($items: [OrderItem!]) {
+    placeOrder(items: $items)
   }
 `;
 
@@ -89,12 +89,10 @@ export const usePlaceOrder = (): [() => void, boolean] => {
     () =>
       mutate({
         variables: {
-          order: {
-            items: shoppingCart.map((item) => ({
-              productId: item.product.id,
-              amount: item.amount,
-            })),
-          },
+          items: shoppingCart.map((item) => ({
+            productId: item.product.id,
+            amount: item.amount,
+          })),
         },
         onCompleted: () => {
           setShoppingCart([]);
