@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`product-item should render 1`] = `
+<DocumentFragment>
+  <div
+    class="ProductItem"
+  >
+    <div
+      class="ProductItem-nameAndPrice"
+    >
+      <div
+        class="ProductItem-name"
+      >
+        Artichoke
+      </div>
+      <div>
+        46.36 EUR
+      </div>
+    </div>
+    <div
+      class="ProductItem-stock"
+    >
+      In stock: 12
+    </div>
+    <div
+      class="ProductItem-buy"
+    >
+      Buy
+    </div>
+  </div>
+</DocumentFragment>
+`;

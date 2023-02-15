@@ -24,4 +24,8 @@
   cursor: pointer;
   align-self: flex-end;
   user-select: none;
+  background-color: var(--primary-color);
+  color: #f2f2f2;
+  padding: var(--space1) var(--space2);
+  border-radius: 3px;
 }
