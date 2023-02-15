@@ -1,25 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`routes should render "/" page 1`] = `
+exports[`routes should render "/cheese" page 1`] = `
 <DocumentFragment>
   <div>
-    issues-page
+    products-page-CHEESE
   </div>
 </DocumentFragment>
 `;
 
-exports[`routes should render "/about" page 1`] = `
+exports[`routes should render "/fruits" page 1`] = `
 <DocumentFragment>
   <div>
-    about-page
+    products-page-FRUITS
   </div>
 </DocumentFragment>
 `;
 
-exports[`routes should render "/issue/1" page 1`] = `
+exports[`routes should render "/thank-you" page 1`] = `
 <DocumentFragment>
   <div>
-    issue-page
+    thank-you-page
+  </div>
+</DocumentFragment>
+`;
+
+exports[`routes should render "/vegetables" page 1`] = `
+<DocumentFragment>
+  <div>
+    products-page-VEGETABLES
   </div>
 </DocumentFragment>
 `;

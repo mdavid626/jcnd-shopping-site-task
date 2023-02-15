@@ -1,5 +1,4 @@
 import React from 'react';
-import shoppingCartContext from '../../contexts/shopping-cart-context/shopping-cart-context';
 import {
   useAddToShoppingCart,
   useRemoveFromShoppingCart,
