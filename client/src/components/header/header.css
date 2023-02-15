@@ -3,6 +3,7 @@
   gap: var(--space4);
   padding: 0 0 var(--space3) 0;
   border-bottom: 1px solid var(--secondary-color);
+  align-items: center;
 }
 
 .Header-logoAndTitle {
