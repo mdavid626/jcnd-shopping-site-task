@@ -12,7 +12,9 @@ const resolvers = {
       _: unknown,
       { category, page }: { category: ProductCategory; page: number }
     ) => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) =>
+        setTimeout(resolve, typeof it === 'function' ? 0 : 1000)
+      );
       return productsDomain.getProducts(category, page);
     },
   },
@@ -24,7 +26,9 @@ const resolvers = {
       if (items.length === 0) {
         throw new Error('Missing items');
       }
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) =>
+        setTimeout(resolve, typeof it === 'function' ? 0 : 1000)
+      );
       const newOrder = await ordersDomain.placeOrder(items);
       return newOrder._id;
     },

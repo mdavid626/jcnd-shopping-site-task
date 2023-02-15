@@ -1,22 +1,11 @@
-import express from 'express';
 import mongoose, { connect } from 'mongoose';
-import { ApolloServer } from 'apollo-server-express';
-import resolvers from './api/resolvers';
-import typeDefs from './api/type-defs';
+import createServer from './server';
 
 const start = async () => {
   mongoose.set('strictQuery', false);
   await connect('mongodb://127.0.0.1:27017/jacando-shop');
 
-  const app = express();
-
-  const apolloServer = new ApolloServer({
-    typeDefs,
-    resolvers,
-  });
-  await apolloServer.start();
-  apolloServer.applyMiddleware({ app });
-
+  const app = await createServer();
   await new Promise((resolve) =>
     app.listen({ port: 5002 }, () => resolve(undefined))
   );

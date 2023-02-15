@@ -1,8 +1,10 @@
 import OrderModel from '../../models/order';
-import { OrderRequestItem } from '../../types/order';
+import { Order, OrderRequestItem } from '../../types/order';
 import { Types } from 'mongoose';
 
-const placeOrder = async (orderRequestItems: OrderRequestItem[]) => {
+const placeOrder = async (
+  orderRequestItems: OrderRequestItem[]
+): Promise<Order> => {
   const newOrder = await new OrderModel({
     items: orderRequestItems.map((item) => ({
       productId: new Types.ObjectId(item.productId),

@@ -6,6 +6,7 @@ export type OrderItem = {
 };
 
 export type Order = {
+  _id: Types.ObjectId;
   items: OrderItem[];
   createdAt: Date;
   updatedAt: Date;

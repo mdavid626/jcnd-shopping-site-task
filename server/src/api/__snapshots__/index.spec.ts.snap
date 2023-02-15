@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`api products should return products 1`] = `
+{
+  "data": {
+    "products": {
+      "__typename": "ProductsQueryResult",
+      "nodes": [
+        {
+          "__typename": "Product",
+          "id": "63ea6485732ff5cf8b36442c",
+          "inStock": 5,
+          "name": "Artichoke",
+          "priceInCents": 123,
+        },
+        {
+          "__typename": "Product",
+          "id": "63ea6485732ff5cf8b36442d",
+          "inStock": 3,
+          "name": "Asparagus",
+          "priceInCents": 456,
+        },
+      ],
+      "pageInfo": {
+        "__typename": "PageInfo",
+        "numberOfPages": 5,
+        "page": 1,
+      },
+    },
+  },
+}
+`;
