@@ -13,11 +13,11 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
   const availableInStock = useAvailableInStock(product);
   return (
     <div className="ProductItem">
-      <div className="ProductItem-nameAndPrice">
-        <div className="ProductItem-name">{product.name}</div>
+      <div className="ProductItem-name">{product.name}</div>
+      <div className="ProductItem-priceAndStock">
         <Currency priceInCents={product.priceInCents} />
+        <div className="ProductItem-stock">In stock: {availableInStock}</div>
       </div>
-      <div className="ProductItem-stock">In stock: {availableInStock}</div>
       <div
         className={classnames('ProductItem-buy', {
           'ProductItem-buy--disabled': availableInStock <= 0,

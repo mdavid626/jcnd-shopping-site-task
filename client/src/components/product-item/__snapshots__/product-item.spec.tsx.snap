@@ -6,19 +6,19 @@ exports[`product-item should render 1`] = `
     class="ProductItem"
   >
     <div
-      class="ProductItem-nameAndPrice"
+      class="ProductItem-name"
     >
-      <div
-        class="ProductItem-name"
-      >
-        Artichoke
-      </div>
-      46,36 €
+      Artichoke
     </div>
     <div
-      class="ProductItem-stock"
+      class="ProductItem-priceAndStock"
     >
-      In stock: 12
+      46,36 €
+      <div
+        class="ProductItem-stock"
+      >
+        In stock: 12
+      </div>
     </div>
     <div
       class="ProductItem-buy"
