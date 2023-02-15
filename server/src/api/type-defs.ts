@@ -1,7 +1,10 @@
 const typeDefs = `#graphql
+  scalar PositiveInt
+  scalar NonNegativeInt
+
   type PageInfo {
-    page: Int!
-    numberOfPages: Int!
+    page: NonNegativeInt!
+    numberOfPages: NonNegativeInt!
   }
   
   enum ProductCategory {
@@ -14,7 +17,7 @@ const typeDefs = `#graphql
     id: String!
     price: Float!
     name: String!
-    inStock: Int!
+    inStock: NonNegativeInt!
   }
   
   type ProductsQueryResult {
@@ -23,12 +26,12 @@ const typeDefs = `#graphql
   }
 
   type Query {
-    products(category: ProductCategory!, page: Int!): ProductsQueryResult!
+    products(category: ProductCategory!, page: NonNegativeInt!): ProductsQueryResult!
   }
   
   input OrderItem {
     productId: String!
-    amount: Int!
+    amount: PositiveInt!
   }
   
   type Mutation {

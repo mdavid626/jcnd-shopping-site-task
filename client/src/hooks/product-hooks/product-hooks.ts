@@ -2,7 +2,7 @@ import { ApolloError, gql, useQuery } from '@apollo/client';
 import { ProductCategory, ProductsQueryResult } from '../../types/products';
 
 export const GetProductsQuery = gql`
-  query GetProductsQuery($category: ProductCategory!, $page: Int!) {
+  query GetProductsQuery($category: ProductCategory!, $page: NonNegativeInt!) {
     products(category: $category, page: $page) {
       nodes {
         id
