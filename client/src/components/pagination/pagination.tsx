@@ -12,7 +12,10 @@ const Pagination: React.FC<{
   const goPreviousEnabled = pageInfo && pageInfo.page > 0;
   const goNextEnabled = pageInfo && pageInfo.page < pageInfo.numberOfPages - 1;
   return (
-    <div className={classnames('Pagination', className)}>
+    <div
+      className={classnames('Pagination', className)}
+      data-testid="Pagination"
+    >
       <div
         onClick={() => goPreviousEnabled && goPrevious()}
         className={classnames('Pagination-arrow', {

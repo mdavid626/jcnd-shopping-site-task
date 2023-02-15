@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pagination should render 1`] = `
+<DocumentFragment>
+  <div
+    class="Pagination"
+    data-testid="Pagination"
+  >
+    <div
+      class="Pagination-arrow Pagination-arrow--enabled"
+      title="Go to previous page"
+    >
+      «
+    </div>
+    <div
+      class="Pagination-arrow Pagination-arrow--enabled"
+      title="Go to next page"
+    >
+      »
+    </div>
+  </div>
+</DocumentFragment>
+`;
