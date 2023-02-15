@@ -1,4 +1,4 @@
-import { ApolloError, gql, useMutation } from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 import { useCallback, useContext, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartContext from '../../contexts/shopping-cart-context/shopping-cart-context';

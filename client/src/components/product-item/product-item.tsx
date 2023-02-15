@@ -5,6 +5,7 @@ import {
   useAvailableInStock,
 } from '../../hooks/shopping-car-thooks/shopping-cart-hooks';
 import { Product } from '../../types/products';
+import Currency from '../currency/currency';
 import './product-item.css';
 
 const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
@@ -14,7 +15,7 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
     <div className="ProductItem">
       <div className="ProductItem-nameAndPrice">
         <div className="ProductItem-name">{product.name}</div>
-        <div>{product.price.toFixed(2)} EUR</div>
+        <Currency priceInCents={product.priceInCents} />
       </div>
       <div className="ProductItem-stock">In stock: {availableInStock}</div>
       <div

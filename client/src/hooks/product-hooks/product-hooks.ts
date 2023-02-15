@@ -6,7 +6,7 @@ export const GetProductsQuery = gql`
     products(category: $category, page: $page) {
       nodes {
         id
-        price
+        priceInCents
         name
         inStock
       }

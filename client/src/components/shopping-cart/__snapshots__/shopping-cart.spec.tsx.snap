@@ -28,7 +28,7 @@ exports[`shopping-cart should render 1`] = `
       class="ShoppingCart-total"
       data-testid="ShoppingCart-total"
     >
-      Total: 1052.04 EUR
+      Total: 1.052,04 €
     </div>
     <div
       class="ShoppingCart-actions"

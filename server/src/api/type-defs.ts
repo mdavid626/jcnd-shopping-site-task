@@ -15,7 +15,7 @@ const typeDefs = `#graphql
 
   type Product {
     id: String!
-    price: Float!
+    priceInCents: NonNegativeInt!
     name: String!
     inStock: NonNegativeInt!
   }

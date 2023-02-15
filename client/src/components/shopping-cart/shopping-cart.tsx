@@ -4,11 +4,15 @@ import {
   useShoppingCart,
 } from '../../hooks/shopping-car-thooks/shopping-cart-hooks';
 import { ShoppingCartItem } from '../../types/shopping-cart';
+import Currency from '../currency/currency';
 import ShoppingCartListItem from '../shopping-cart-list-item/shopping-cart-list-item';
 import './shopping-cart.css';
 
 const calculateTotal = (shoppingCart: ShoppingCartItem[]) =>
-  shoppingCart.reduce((acc, item) => acc + item.product.price * item.amount, 0);
+  shoppingCart.reduce(
+    (acc, item) => acc + item.product.priceInCents * item.amount,
+    0
+  );
 
 const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [shoppingCart] = useShoppingCart();
@@ -36,7 +40,7 @@ const ShoppingCart: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       </div>
       {shoppingCart.length > 0 && (
         <div className="ShoppingCart-total" data-testid="ShoppingCart-total">
-          Total: {calculateTotal(shoppingCart).toFixed(2)} EUR
+          Total: <Currency priceInCents={calculateTotal(shoppingCart)} />
         </div>
       )}
       <div className="ShoppingCart-actions">

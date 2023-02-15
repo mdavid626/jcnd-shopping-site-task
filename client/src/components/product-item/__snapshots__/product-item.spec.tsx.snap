@@ -13,9 +13,7 @@ exports[`product-item should render 1`] = `
       >
         Artichoke
       </div>
-      <div>
-        46.36 EUR
-      </div>
+      46,36 €
     </div>
     <div
       class="ProductItem-stock"

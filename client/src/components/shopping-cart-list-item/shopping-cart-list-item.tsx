@@ -5,6 +5,7 @@ import {
   useRemoveFromShoppingCart,
 } from '../../hooks/shopping-car-thooks/shopping-cart-hooks';
 import { ShoppingCartItem } from '../../types/shopping-cart';
+import Currency from '../currency/currency';
 import './shopping-cart-list-item.css';
 
 const ShoppingCartListItem: React.FC<{
@@ -21,7 +22,8 @@ const ShoppingCartListItem: React.FC<{
           {shoppingCartItem.product.name}
         </div>
         <div className="ShoppingCartListItem-price">
-          Price: {shoppingCartItem.product.price.toFixed(2)} EUR
+          Price:{' '}
+          <Currency priceInCents={shoppingCartItem.product.priceInCents} />
         </div>
         <div className="ShoppingCartListItem-amountColumn">
           <div className="ShoppingCartListItem-amount">
@@ -46,10 +48,11 @@ const ShoppingCartListItem: React.FC<{
           </div>
         </div>
         <div className="ShoppingCartListItem-totalPrice">
-          {(shoppingCartItem.product.price * shoppingCartItem.amount).toFixed(
-            2
-          )}{' '}
-          EUR
+          <Currency
+            priceInCents={
+              shoppingCartItem.product.priceInCents * shoppingCartItem.amount
+            }
+          />
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ exports[`shopping-cart-list-item should render 1`] = `
       <div
         class="ShoppingCartListItem-price"
       >
-        Price: 46.36 EUR
+        Price: 46,36 €
       </div>
       <div
         class="ShoppingCartListItem-amountColumn"
@@ -45,7 +45,7 @@ exports[`shopping-cart-list-item should render 1`] = `
       <div
         class="ShoppingCartListItem-totalPrice"
       >
-        139.08 EUR
+        139,08 €
       </div>
     </div>
   </div>

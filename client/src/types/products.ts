@@ -4,7 +4,7 @@ export type ProductCategory = 'VEGETABLES' | 'FRUITS' | 'CHEESE';
 
 export type Product = {
   id: string;
-  price: number;
+  priceInCents: number;
   name: string;
   inStock: number;
 };

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`currency should render 1`] = `
+<DocumentFragment>
+  1.569,45 €
+</DocumentFragment>
+`;

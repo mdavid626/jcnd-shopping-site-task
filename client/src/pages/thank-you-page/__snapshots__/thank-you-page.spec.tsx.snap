@@ -17,6 +17,7 @@ exports[`thank-you-page should render 1`] = `
         Order placed, thank you!
       </div>
       <a
+        class="ThankYouPage-newOrder"
         href="/"
       >
         make new order
