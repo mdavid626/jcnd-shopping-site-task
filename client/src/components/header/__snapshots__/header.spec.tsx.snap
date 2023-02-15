@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header should render 1`] = `
+<DocumentFragment>
+  <div
+    class="Header"
+  >
+    <div
+      class="Header-logoAndTitle"
+    >
+      <img
+        alt="logo"
+        class="Header-logo"
+        src="logo.png"
+      />
+      <div
+        class="Header-title"
+      >
+        Simple Shopping Site
+      </div>
+    </div>
+    <div
+      class="Header-avatarAndUser"
+    >
+      <img
+        alt="avatar"
+        class="Header-avatar"
+        src="avatar.svg"
+      />
+      <div
+        class="Header-user"
+      >
+        Max Pecu
+      </div>
+    </div>
+    <div>
+      shopping-cart-button
+    </div>
+  </div>
+</DocumentFragment>
+`;
