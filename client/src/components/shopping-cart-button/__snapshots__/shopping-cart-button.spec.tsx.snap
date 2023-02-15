@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shopping-cart-button should render 1`] = `
+<DocumentFragment>
+  <img
+    alt="cart"
+    class="ShoppingCartButton"
+    src="cart.svg"
+  />
+</DocumentFragment>
+`;
