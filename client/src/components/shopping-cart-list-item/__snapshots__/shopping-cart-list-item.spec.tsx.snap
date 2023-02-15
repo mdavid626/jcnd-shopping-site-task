@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shopping-cart-list-item should render 1`] = `
+<DocumentFragment>
+  <div
+    class="ShoppingCartListItem"
+  >
+    <div
+      class="ShoppingCartListItem-product"
+    >
+      <div
+        class="ShoppingCartListItem-name"
+      >
+        Artichoke
+      </div>
+      <div>
+        Price: 46.36 EUR
+      </div>
+      <div>
+        Amount: 3
+      </div>
+      <div>
+        139.08 EUR
+      </div>
+    </div>
+    <div
+      class="ShoppingCartListItem-actions"
+    >
+      <div
+        class="ShoppingCartListItem-button"
+      >
+        add more
+      </div>
+      <div
+        class="ShoppingCartListItem-button"
+      >
+        remove
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

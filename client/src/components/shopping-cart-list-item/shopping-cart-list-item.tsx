@@ -34,14 +34,14 @@ const ShoppingCartListItem: React.FC<{
             onClick={() => addToShoppingCart(shoppingCartItem.product)}
             className="ShoppingCartListItem-button"
           >
-            Add more
+            add more
           </div>
         )}
         <div
           onClick={() => removeFromShoppingCart(shoppingCartItem.product)}
           className="ShoppingCartListItem-button"
         >
-          Remove
+          remove
         </div>
       </div>
     </div>
