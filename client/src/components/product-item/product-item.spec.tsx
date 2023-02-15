@@ -25,10 +25,10 @@ describe('product-item', () => {
     expect(useAvailableInStock).toHaveBeenCalledWith(testProduct1);
   });
 
-  it('should not render buy button when not available in stock', () => {
+  it('should disable buy button when not available in stock', () => {
     (useAvailableInStock as jest.Mock).mockReturnValue(0);
     render(<ProductItem product={testProduct1} />);
-    expect(screen.queryByText('Buy')).toBe(null);
+    expect(screen.getByText('Buy')).toHaveClass('ProductItem-buy--disabled');
   });
 
   it('should add to shopping cart when buy button clicked', async () => {

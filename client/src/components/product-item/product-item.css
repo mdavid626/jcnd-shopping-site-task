@@ -29,3 +29,9 @@
   padding: var(--space1) var(--space2);
   border-radius: 3px;
 }
+
+.ProductItem-buy--disabled {
+  cursor: unset;
+  pointer-events: none;
+  background-color: var(--secondary-color);
+}

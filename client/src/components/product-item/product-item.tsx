@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React from 'react';
 import {
   useAddToShoppingCart,
@@ -16,14 +17,14 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
         <div>{product.price.toFixed(2)} EUR</div>
       </div>
       <div className="ProductItem-stock">In stock: {availableInStock}</div>
-      {availableInStock > 0 && (
-        <div
-          className="ProductItem-buy"
-          onClick={() => addToShoppingCart(product)}
-        >
-          Buy
-        </div>
-      )}
+      <div
+        className={classnames('ProductItem-buy', {
+          'ProductItem-buy--disabled': availableInStock <= 0,
+        })}
+        onClick={() => addToShoppingCart(product)}
+      >
+        Buy
+      </div>
     </div>
   );
 };
