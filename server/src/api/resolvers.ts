@@ -11,12 +11,7 @@ const resolvers = {
     products: async (
       _: unknown,
       { category, page }: { category: ProductCategory; page: number }
-    ) => {
-      await new Promise((resolve) =>
-        setTimeout(resolve, typeof it === 'function' ? 0 : 1000)
-      );
-      return productsDomain.getProducts(category, page);
-    },
+    ) => productsDomain.getProducts(category, page),
   },
   Mutation: {
     placeOrder: async (
@@ -26,9 +21,6 @@ const resolvers = {
       if (items.length === 0) {
         throw new Error('Missing items');
       }
-      await new Promise((resolve) =>
-        setTimeout(resolve, typeof it === 'function' ? 0 : 1000)
-      );
       const newOrder = await ordersDomain.placeOrder(items);
       return newOrder._id;
     },
