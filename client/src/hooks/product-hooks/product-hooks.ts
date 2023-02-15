@@ -22,15 +22,12 @@ export const useProducts = (
   category: ProductCategory,
   currentPage: number
 ): [ProductsQueryResult | undefined, ApolloError | undefined] => {
-  const { data, loading, error } = useQuery<ProductsQueryResult>(
-    GetProductsQuery,
-    {
-      variables: {
-        category,
-        page: currentPage,
-      },
-      notifyOnNetworkStatusChange: true,
-    }
-  );
+  const { data, error } = useQuery<ProductsQueryResult>(GetProductsQuery, {
+    variables: {
+      category,
+      page: currentPage,
+    },
+    notifyOnNetworkStatusChange: true,
+  });
   return [data, error];
 };
