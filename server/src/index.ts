@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose, { connect } from 'mongoose';
 import { ApolloServer } from 'apollo-server-express';
-import apolloServerConfig from './apollo-server-config';
+import resolvers from './api/resolvers';
+import typeDefs from './api/type-defs';
 
 const start = async () => {
   mongoose.set('strictQuery', false);
@@ -9,7 +10,10 @@ const start = async () => {
 
   const app = express();
 
-  const apolloServer = new ApolloServer(apolloServerConfig);
+  const apolloServer = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
 

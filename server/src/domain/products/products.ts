@@ -1,6 +1,6 @@
-import { ProductCategory, ProductsQueryResult } from '../types/product';
+import { ProductCategory, ProductsQueryResult } from '../../types/product';
 import sampleProducts from './sample-products';
-import { PageInfo } from '../types/page-info';
+import { PageInfo } from '../../types/page-info';
 
 const pageSize = 5;
 

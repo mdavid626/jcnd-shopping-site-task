@@ -1,5 +1,5 @@
-import OrderModel from '../models/order';
-import { Order } from '../types/order';
+import OrderModel from '../../models/order';
+import { Order } from '../../types/order';
 
 const placeOrder = async (order: Order) => {
   const newOrder = await new OrderModel(order).save();
