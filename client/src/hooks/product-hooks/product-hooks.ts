@@ -21,7 +21,7 @@ export const GetProductsQuery = gql`
 export const useProducts = (
   category: ProductCategory,
   currentPage: number
-): [ProductsQueryResult | undefined, boolean, ApolloError | undefined] => {
+): [ProductsQueryResult | undefined, ApolloError | undefined] => {
   const { data, loading, error } = useQuery<ProductsQueryResult>(
     GetProductsQuery,
     {
@@ -32,5 +32,5 @@ export const useProducts = (
       notifyOnNetworkStatusChange: true,
     }
   );
-  return [data, loading, error];
+  return [data, error];
 };

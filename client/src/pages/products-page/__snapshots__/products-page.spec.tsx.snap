@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`products-page should render 1`] = `
+<DocumentFragment>
+  <div
+    class="ProductsPage"
+  >
+    <div>
+      header
+    </div>
+    <div>
+      sidebar 
+      <div
+        class="ProductsPage-content"
+      >
+        <div>
+          pagination
+        </div>
+        <div
+          class="ProductsPage-products"
+        >
+          <div>
+            product-item
+          </div>
+          <div>
+            product-item
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      footer
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`products-page should show spinner when loading 1`] = `
+<DocumentFragment>
+  <div
+    class="ProductsPage"
+  >
+    <div>
+      header
+    </div>
+    <div>
+      sidebar 
+      <div
+        class="ProductsPage-content"
+      >
+        <div>
+          pagination
+        </div>
+        <img
+          alt="loading spinner"
+          class="PageLoader-spinner"
+          data-testid="PageLoader-spinner"
+          src="spinner.svg"
+        />
+      </div>
+    </div>
+    <div>
+      footer
+    </div>
+  </div>
+</DocumentFragment>
+`;

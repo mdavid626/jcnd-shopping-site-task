@@ -14,10 +14,7 @@ const ProductsPage: React.FC<{ category: ProductCategory }> = ({
   category,
 }) => {
   const [currentPage, goNext, goPrevious] = usePagination();
-  const [queryResult, _isLoading, productsError] = useProducts(
-    category,
-    currentPage
-  );
+  const [queryResult, productsError] = useProducts(category, currentPage);
   return (
     <div className="ProductsPage">
       <Header />
