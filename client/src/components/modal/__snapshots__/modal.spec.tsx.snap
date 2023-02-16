@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modal should render 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="modal-root"
+    id="modal-root"
+  >
+    <div
+      class="Modal"
+    >
+      <div>
+        content
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

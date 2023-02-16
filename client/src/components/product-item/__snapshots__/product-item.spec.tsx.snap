@@ -4,6 +4,7 @@ exports[`product-item should render 1`] = `
 <DocumentFragment>
   <div
     class="ProductItem"
+    data-testid="ProductItem-63ea6485732ff5cf8b36442c"
   >
     <div
       class="ProductItem-name"
