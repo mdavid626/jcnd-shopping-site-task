@@ -7,9 +7,9 @@ The app was developed using the latest version of Node (v18), but should run on 
 ## Implementation details
 The application was created using `create-react-app` with the `typescript` template.
 
-Linting rules are enforced using eslint and prettier.
+Linting rules are enforced using `eslint` and `prettier`.
 
-Client side routing is done with the help of react-router. Data loading is managed by `@apollo/client`.
+Client side routing is done with the help of `react-router`. Data loading is managed by `@apollo/client`.
 
 The app has a near 100% coverage of unit and integration test.
 
