@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shopping-cart-hooks usePlaceOrder should place order: query 1`] = `
+Array [
+  "https://api.github.com/graphql",
+  Object {
+    "body": "{\\"operationName\\":\\"PlaceOrder\\",\\"variables\\":{\\"items\\":[{\\"productId\\":\\"63ea6485732ff5cf8b36442c\\",\\"amount\\":3},{\\"productId\\":\\"63ea6485732ff5cf8b36442d\\",\\"amount\\":36}]},\\"query\\":\\"mutation PlaceOrder($items: [OrderItem!]!) {\\\\n  placeOrder(items: $items)\\\\n}\\"}",
+    "headers": Object {
+      "accept": "*/*",
+      "content-type": "application/json",
+    },
+    "method": "POST",
+    "signal": AbortSignal {},
+  },
+]
+`;

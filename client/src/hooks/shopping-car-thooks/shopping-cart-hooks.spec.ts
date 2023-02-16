@@ -1,61 +1,30 @@
-import { Queries, queries } from '@testing-library/react';
-import { act, renderHook, RenderHookOptions } from '@testing-library/react';
-import React, { useMemo, useState } from 'react';
-import ShoppingCartContext from '../../contexts/shopping-cart-context/shopping-cart-context';
+import { act, waitFor } from '@testing-library/react';
 import { testProduct1, testProduct2 } from '../../test-data/products';
+import { placeOrderQueryResult1 } from '../../test-data/query-results';
 import {
   testShoppingCart1,
   testShoppingCartItem1,
   testShoppingCartItem2,
 } from '../../test-data/shopping-cart';
 import {
-  ShoppingCartContextValue,
-  ShoppingCartItem,
-} from '../../types/shopping-cart';
+  renderHookWithShoppingCart,
+  renderHookWithShoppingCartAndQueryClientAndRouter,
+} from '../../testing-library/render';
 import {
   useAddToShoppingCart,
   useAvailableInStock,
+  usePlaceOrder,
   useRemoveFromShoppingCart,
   useShoppingCart,
 } from './shopping-cart-hooks';
 
-export const renderHookWithShoppingCart = <
-  Result,
-  Props,
-  Q extends Queries = typeof queries,
-  Container extends Element | DocumentFragment = HTMLElement,
-  BaseElement extends Element | DocumentFragment = Container
->(
-  render: (initialProps: Props) => Result,
-  options?: RenderHookOptions<Props, Q, Container, BaseElement>,
-  initialShoppingCart?: ShoppingCartItem[]
-) => {
-  let shoppingCartContext: { value?: ShoppingCartContextValue } = {};
-  return {
-    ...renderHook(render, {
-      wrapper: ({ children }) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const [shoppingCart, setShoppingCart] = useState(
-          initialShoppingCart || []
-        );
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        shoppingCartContext.value = useMemo(
-          () => ({ shoppingCart, setShoppingCart }),
-          [shoppingCart, setShoppingCart]
-        );
-        return (
-          <ShoppingCartContext.Provider value={shoppingCartContext.value}>
-            {children}
-          </ShoppingCartContext.Provider>
-        );
-      },
-      ...options,
-    }),
-    shoppingCartContext,
-  };
-};
-
 describe('shopping-cart-hooks', () => {
+  beforeEach(() => {
+    fetchMock.resetMocks();
+    jest.spyOn(window, 'alert').mockReturnValue(undefined);
+  });
+  afterEach(jest.resetAllMocks);
+
   describe('useShoppingCart', () => {
     it('should return shopping cart', () => {
       const { result, shoppingCartContext } = renderHookWithShoppingCart(
@@ -159,6 +128,45 @@ describe('shopping-cart-hooks', () => {
         [testShoppingCartItem2]
       );
       expect(result.current).toBe(5);
+    });
+  });
+
+  describe('usePlaceOrder', () => {
+    it('should place order', async () => {
+      fetchMock.mockResponse(JSON.stringify(placeOrderQueryResult1));
+      const { result, shoppingCartContext, router } =
+        renderHookWithShoppingCartAndQueryClientAndRouter(
+          () => usePlaceOrder(),
+          undefined,
+          testShoppingCart1
+        );
+      expect(result.current).toStrictEqual([expect.any(Function), false]);
+      act(() => {
+        result.current[0]();
+      });
+      await waitFor(() => {
+        expect(router.location?.pathname).toBe('/thank-you');
+      });
+      expect(shoppingCartContext.value?.shoppingCart).toStrictEqual([]);
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(fetchMock.mock.calls[0]).toMatchSnapshot('query');
+      expect(window.alert).not.toHaveBeenCalled();
+    });
+
+    it('should show error when error', async () => {
+      fetchMock.mockRejectedValue(new Error('test error'));
+      const { result } = renderHookWithShoppingCartAndQueryClientAndRouter(
+        () => usePlaceOrder(),
+        undefined,
+        testShoppingCart1
+      );
+      expect(result.current).toStrictEqual([expect.any(Function), false]);
+      act(() => {
+        result.current[0]();
+      });
+      await waitFor(() => {
+        expect(window.alert).toHaveBeenCalledWith('test error');
+      });
     });
   });
 });

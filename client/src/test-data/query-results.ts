@@ -43,3 +43,7 @@ export const productsQueryResult = {
     },
   },
 };
+
+export const placeOrderQueryResult1 = {
+  data: { placeOrder: '63ede5e031f3fc4012a0951b' },
+};

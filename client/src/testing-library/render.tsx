@@ -15,9 +15,14 @@ import {
   RenderResult,
   RenderHookResult,
 } from '@testing-library/react';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useMemo, useState } from 'react';
 import { MemoryRouter, useLocation, useNavigate } from 'react-router-dom';
 import { NavigateFunction } from 'react-router/dist/lib/hooks';
+import ShoppingCartContext from '../contexts/shopping-cart-context/shopping-cart-context';
+import {
+  ShoppingCartContextValue,
+  ShoppingCartItem,
+} from '../types/shopping-cart';
 
 type SimpleRouter = {
   location?: Location;
@@ -30,6 +35,10 @@ type RouterResult = {
 
 type ApolloClientResult = {
   apolloClient: ApolloClient<NormalizedCacheObject>;
+};
+
+type ShoppingCartContextResult = {
+  shoppingCartContext: { value?: ShoppingCartContextValue };
 };
 
 export const renderWithRouter = (
@@ -145,5 +154,97 @@ export const renderHookWithQueryClient = <
       ...options,
     }),
     apolloClient,
+  };
+};
+
+export const renderHookWithShoppingCart = <
+  Result,
+  Props,
+  Q extends Queries = typeof queries,
+  Container extends Element | DocumentFragment = HTMLElement,
+  BaseElement extends Element | DocumentFragment = Container
+>(
+  render: (initialProps: Props) => Result,
+  options?: RenderHookOptions<Props, Q, Container, BaseElement>,
+  initialShoppingCart?: ShoppingCartItem[]
+): RenderHookResult<Result, Props> & ShoppingCartContextResult => {
+  let shoppingCartContext: { value?: ShoppingCartContextValue } = {};
+  return {
+    ...renderHook(render, {
+      wrapper: ({ children }) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [shoppingCart, setShoppingCart] = useState(
+          initialShoppingCart || []
+        );
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        shoppingCartContext.value = useMemo(
+          () => ({ shoppingCart, setShoppingCart }),
+          [shoppingCart, setShoppingCart]
+        );
+        return (
+          <ShoppingCartContext.Provider value={shoppingCartContext.value}>
+            {children}
+          </ShoppingCartContext.Provider>
+        );
+      },
+      ...options,
+    }),
+    shoppingCartContext,
+  };
+};
+
+export const renderHookWithShoppingCartAndQueryClientAndRouter = <
+  Result,
+  Props,
+  Q extends Queries = typeof queries,
+  Container extends Element | DocumentFragment = HTMLElement,
+  BaseElement extends Element | DocumentFragment = Container
+>(
+  render: (initialProps: Props) => Result,
+  options?: RenderHookOptions<Props, Q, Container, BaseElement>,
+  initialShoppingCart?: ShoppingCartItem[],
+  initialEntries?: string[]
+): RenderHookResult<Result, Props> &
+  ShoppingCartContextResult &
+  ApolloClientResult &
+  RouterResult => {
+  const router = {} as SimpleRouter;
+  const apolloClient = new ApolloClient({
+    uri: 'https://api.github.com/graphql',
+    cache: new InMemoryCache(),
+  });
+  let shoppingCartContext: { value?: ShoppingCartContextValue } = {};
+  return {
+    ...renderHook(render, {
+      wrapper: ({ children }) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [shoppingCart, setShoppingCart] = useState(
+          initialShoppingCart || []
+        );
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        shoppingCartContext.value = useMemo(
+          () => ({ shoppingCart, setShoppingCart }),
+          [shoppingCart, setShoppingCart]
+        );
+        const Children = () => {
+          router.location = useLocation();
+          router.navigate = useNavigate();
+          return children;
+        };
+        return (
+          <ApolloProvider client={apolloClient}>
+            <ShoppingCartContext.Provider value={shoppingCartContext.value}>
+              <MemoryRouter initialEntries={initialEntries}>
+                <Children />
+              </MemoryRouter>
+            </ShoppingCartContext.Provider>
+          </ApolloProvider>
+        );
+      },
+      ...options,
+    }),
+    shoppingCartContext,
+    apolloClient,
+    router,
   };
 };
