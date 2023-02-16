@@ -12,7 +12,7 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
   const addToShoppingCart = useAddToShoppingCart();
   const availableInStock = useAvailableInStock(product);
   return (
-    <div className="ProductItem">
+    <div className="ProductItem" data-testid={`ProductItem-${product.id}`}>
       <div className="ProductItem-name">{product.name}</div>
       <div className="ProductItem-priceAndStock">
         <Currency priceInCents={product.priceInCents} />

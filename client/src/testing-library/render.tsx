@@ -15,10 +15,11 @@ import {
   RenderResult,
   RenderHookResult,
 } from '@testing-library/react';
-import React, { ReactElement, useMemo, useState } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { MemoryRouter, useLocation, useNavigate } from 'react-router-dom';
 import { NavigateFunction } from 'react-router/dist/lib/hooks';
 import ShoppingCartContext from '../contexts/shopping-cart-context/shopping-cart-context';
+import ShoppingCartProvider from '../contexts/shopping-cart-context/shopping-cart-provider';
 import {
   ShoppingCartContextValue,
   ShoppingCartItem,
@@ -67,37 +68,51 @@ export const renderWithRouter = (
   } as RenderResult & RouterResult;
 };
 
-export const renderWithRouterAndQueryClient = (
+export const renderWithFullContext = (
   component: ReactElement,
   options?: Omit<RenderOptions, 'queries'>,
   initialEntries?: InitialEntry[]
-): RenderResult & RouterResult & ApolloClientResult => {
+): RenderResult &
+  RouterResult &
+  ApolloClientResult &
+  ShoppingCartContextResult => {
   const router = {} as SimpleRouter;
   const apolloClient = new ApolloClient({
     uri: 'https://api.github.com/graphql',
     cache: new InMemoryCache(),
   });
+  const shoppingCartContext: { value?: ShoppingCartContextValue } = {};
   return {
     ...render(component, {
       wrapper: ({ children }) => {
         const Children = () => {
           router.location = useLocation();
           router.navigate = useNavigate();
+          shoppingCartContext.value = useContext(ShoppingCartContext);
           return children;
         };
         return (
-          <ApolloProvider client={apolloClient}>
-            <MemoryRouter initialEntries={initialEntries}>
-              <Children />
-            </MemoryRouter>
-          </ApolloProvider>
+          <>
+            <ApolloProvider client={apolloClient}>
+              <ShoppingCartProvider>
+                <MemoryRouter initialEntries={initialEntries}>
+                  <Children />
+                </MemoryRouter>
+              </ShoppingCartProvider>
+            </ApolloProvider>
+            <div id="modal-root" data-testid="modal-root" />
+          </>
         );
       },
       ...options,
     }),
     router,
     apolloClient,
-  } as RenderResult & RouterResult & ApolloClientResult;
+    shoppingCartContext,
+  } as RenderResult &
+    RouterResult &
+    ApolloClientResult &
+    ShoppingCartContextResult;
 };
 
 export const renderHookWithRouter = <
@@ -169,22 +184,21 @@ export const renderHookWithShoppingCart = <
   initialShoppingCart?: ShoppingCartItem[]
 ): RenderHookResult<Result, Props> & ShoppingCartContextResult => {
   let shoppingCartContext: { value?: ShoppingCartContextValue } = {};
+  window.sessionStorage.setItem(
+    'shoppingCart',
+    JSON.stringify(initialShoppingCart || [])
+  );
   return {
     ...renderHook(render, {
       wrapper: ({ children }) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const [shoppingCart, setShoppingCart] = useState(
-          initialShoppingCart || []
-        );
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        shoppingCartContext.value = useMemo(
-          () => ({ shoppingCart, setShoppingCart }),
-          [shoppingCart, setShoppingCart]
-        );
+        const Children = () => {
+          shoppingCartContext.value = useContext(ShoppingCartContext);
+          return children;
+        };
         return (
-          <ShoppingCartContext.Provider value={shoppingCartContext.value}>
-            {children}
-          </ShoppingCartContext.Provider>
+          <ShoppingCartProvider>
+            <Children />
+          </ShoppingCartProvider>
         );
       },
       ...options,
@@ -213,31 +227,27 @@ export const renderHookWithShoppingCartAndQueryClientAndRouter = <
     uri: 'https://api.github.com/graphql',
     cache: new InMemoryCache(),
   });
+  window.sessionStorage.setItem(
+    'shoppingCart',
+    JSON.stringify(initialShoppingCart || [])
+  );
   let shoppingCartContext: { value?: ShoppingCartContextValue } = {};
   return {
     ...renderHook(render, {
       wrapper: ({ children }) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const [shoppingCart, setShoppingCart] = useState(
-          initialShoppingCart || []
-        );
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        shoppingCartContext.value = useMemo(
-          () => ({ shoppingCart, setShoppingCart }),
-          [shoppingCart, setShoppingCart]
-        );
         const Children = () => {
           router.location = useLocation();
           router.navigate = useNavigate();
+          shoppingCartContext.value = useContext(ShoppingCartContext);
           return children;
         };
         return (
           <ApolloProvider client={apolloClient}>
-            <ShoppingCartContext.Provider value={shoppingCartContext.value}>
+            <ShoppingCartProvider>
               <MemoryRouter initialEntries={initialEntries}>
                 <Children />
               </MemoryRouter>
-            </ShoppingCartContext.Provider>
+            </ShoppingCartProvider>
           </ApolloProvider>
         );
       },

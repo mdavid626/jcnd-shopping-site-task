@@ -2,8 +2,6 @@ import React, { ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import './modal.css';
 
-const modalRoot = document.getElementById('modal-root')!;
-
 const createElement = () => {
   const div = document.createElement('div');
   div.className = 'Modal';
@@ -15,9 +13,10 @@ const Modal: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   useEffect(() => {
     const element = elementRef.current;
-    modalRoot.appendChild(element);
+    const modalRoot = document.getElementById('modal-root');
+    modalRoot!.appendChild(element);
     return () => {
-      modalRoot.removeChild(element);
+      modalRoot!.removeChild(element);
     };
   }, []);
 
