@@ -1,9 +1,9 @@
 import { createContext } from 'react';
-import { ShoppingCartItem } from '../../types/shopping-cart';
+import { ShoppingCartContextValue } from '../../types/shopping-cart';
 
-const ShoppingCartContext = createContext<{
-  shoppingCart: ShoppingCartItem[];
-  setShoppingCart: (newShoppingCart: ShoppingCartItem[]) => void;
-}>({ shoppingCart: [], setShoppingCart: () => {} });
+const ShoppingCartContext = createContext<ShoppingCartContextValue>({
+  shoppingCart: [],
+  setShoppingCart: () => {},
+});
 
 export default ShoppingCartContext;

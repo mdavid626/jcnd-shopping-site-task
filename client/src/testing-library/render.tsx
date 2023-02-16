@@ -6,7 +6,7 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 import { InitialEntry, Location } from '@remix-run/router';
-import { Queries, queries } from '@testing-library/dom';
+import { Queries, queries } from '@testing-library/react';
 import {
   RenderHookOptions,
   RenderOptions,
