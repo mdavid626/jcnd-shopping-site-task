@@ -27,7 +27,6 @@ export const useProducts = (
       category,
       page: currentPage,
     },
-    notifyOnNetworkStatusChange: true,
   });
   return [data, error];
 };

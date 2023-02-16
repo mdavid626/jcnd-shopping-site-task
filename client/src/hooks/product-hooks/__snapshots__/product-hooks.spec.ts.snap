@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`product-hooks useProducts should return products: query 1`] = `
+Array [
+  "https://api.github.com/graphql",
+  Object {
+    "body": "{\\"operationName\\":\\"GetProductsQuery\\",\\"variables\\":{\\"category\\":\\"VEGETABLES\\",\\"page\\":1},\\"query\\":\\"query GetProductsQuery($category: ProductCategory!, $page: NonNegativeInt!) {\\\\n  products(category: $category, page: $page) {\\\\n    nodes {\\\\n      id\\\\n      priceInCents\\\\n      name\\\\n      inStock\\\\n      __typename\\\\n    }\\\\n    pageInfo {\\\\n      page\\\\n      numberOfPages\\\\n      __typename\\\\n    }\\\\n    __typename\\\\n  }\\\\n}\\"}",
+    "headers": Object {
+      "accept": "*/*",
+      "content-type": "application/json",
+    },
+    "method": "POST",
+    "signal": AbortSignal {},
+  },
+]
+`;
+
+exports[`product-hooks useProducts should return products: query result 1`] = `
+Object {
+  "products": Object {
+    "__typename": "ProductsQueryResult",
+    "nodes": Array [
+      Object {
+        "__typename": "Product",
+        "id": "63ea6485732ff5cf8b364431",
+        "inStock": 466,
+        "name": "Broccoli",
+        "priceInCents": 9699,
+      },
+      Object {
+        "__typename": "Product",
+        "id": "63ea6485732ff5cf8b364432",
+        "inStock": 223,
+        "name": "Broccolini",
+        "priceInCents": 3434,
+      },
+      Object {
+        "__typename": "Product",
+        "id": "63ea6485732ff5cf8b364433",
+        "inStock": 12,
+        "name": "Brussels Sprouts",
+        "priceInCents": 3692,
+      },
+      Object {
+        "__typename": "Product",
+        "id": "63ea6485732ff5cf8b364434",
+        "inStock": 200,
+        "name": "Cabbage",
+        "priceInCents": 8839,
+      },
+      Object {
+        "__typename": "Product",
+        "id": "63ea6485732ff5cf8b364435",
+        "inStock": 151,
+        "name": "Carrots",
+        "priceInCents": 6828,
+      },
+    ],
+    "pageInfo": Object {
+      "__typename": "PageInfo",
+      "numberOfPages": 15,
+      "page": 1,
+    },
+  },
+}
+`;
